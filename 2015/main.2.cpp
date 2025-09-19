@@ -18,16 +18,12 @@ std::vector<int> getLengths(std::string line, char delimiter) {
 }
 
 int main(int argc, const char *argv[]) {
-
-  std::print("Lockie\n");
-
   // run from the repo root
   std::ifstream file("./build/2015/2.txt");
-  std::print("{0}", file.is_open());
-
   std::string line;
 
-  int total{};
+  int wrappingPaper{};
+  int ribbon{};
 
   while (std::getline(file, line)) {
 
@@ -36,16 +32,20 @@ int main(int argc, const char *argv[]) {
     auto w = dimensions[0];
     auto l = dimensions[1];
     auto h = dimensions[2];
+    std::vector<int> dimes{w, l, h};
+    std::sort(dimes.begin(), dimes.end());
 
     const auto wh = w * h;
     const auto hl = l * h;
     const auto lw = l * w;
-    const std::vector<int> areas = {wh, hl, lw};
+    std::vector<int> areas = {wh, hl, lw};
+    std::sort(areas.begin(), areas.end());
 
-    const auto addition = *std::min_element(areas.begin(), areas.end());
+    wrappingPaper += (2 * wh) + (2 * hl) + (2 * lw) + areas.at(0);
 
-    total += (2 * wh) + (2 * hl) + (2 * lw) + addition;
+    ribbon +=
+        (2 * dimes[0]) + (2 * dimes[1]) + (dimes[0] * dimes[1] * dimes[2]);
   }
 
-  std::println("{0}", total);
+  std::println("{0}, {1}", wrappingPaper, ribbon);
 }
