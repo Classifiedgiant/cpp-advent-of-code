@@ -1,41 +1,43 @@
 #include <assert.h>
+#include <fstream>
+#include <string>
+#include <string_view>
 #include <version>
 
-#if defined(__cpp_lib_print)
+#if __cpp_lib_print >= 202207L
 #include <print>
 #else
 #error "Unable to support std::print"
 #endif
 
-int calculateFloor(const char *str) {
+int calculateFloor(std::string_view str) {
   int floor{0};
 
-  while (*str != '\0') {
-    if (*str == '(')
+  for (const auto ch : str) {
+
+    if (ch == '(')
       floor++;
     else
       floor--;
-
-    str++;
   }
 
   return floor;
 }
 
-int calculateFirstBasement(const char *str) {
+int calculateFirstBasement(std::string_view str) {
   int curr_floor{0};
   int i = 0;
 
-  while (*str != '\0') {
-    if (*str == '(')
+  for (const auto ch : str) {
+    if (ch == '(')
       curr_floor++;
-    else
+    else {
       curr_floor--;
 
-    if (curr_floor == -1)
-      return i + 1;
+      if (curr_floor == -1)
+        return i + 1;
+    }
 
-    str++;
     i++;
   }
 
@@ -58,11 +60,15 @@ int main(int argc, const char *argv[]) {
   assert(calculateFloor(")))") == -3);
   assert(calculateFloor(")())())") == -3);
 
-  // Generate the answer using the input argument
-  std::print("{0}\n", calculateFloor(argv[1]));
-  // generates 232
+  std::ifstream file("./build/2015/1.txt");
+  const auto content = std::string(std::istreambuf_iterator<char>(file),
+                                   std::istreambuf_iterator<char>());
 
-  // Day 1 part 2 answer
-  std::print("{0}\n", calculateFirstBasement(argv[1]));
+  const auto finalFloor = calculateFloor(content);
+  const auto firstBasement = calculateFirstBasement(content);
+
+  // Generate the answer using the input argument
+  std::println("{0}, {1}", finalFloor, firstBasement);
+
   return 0;
 }
