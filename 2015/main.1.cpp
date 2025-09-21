@@ -43,7 +43,6 @@ int calculateFirstBasement(std::string_view str) {
 
   // should not get here (Santa must get to the basement)
   assert(false);
-
   return -1;
 }
 
@@ -65,6 +64,10 @@ int main(int argc, const char *argv[]) {
                                    std::istreambuf_iterator<char>());
 
   const auto finalFloor = calculateFloor(content);
+
+  // part 2 examples
+  assert(calculateFirstBasement(")") == 1);
+  assert(calculateFirstBasement("()())") == 5);
   const auto firstBasement = calculateFirstBasement(content);
 
   // Generate the answer using the input argument
