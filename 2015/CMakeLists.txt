@@ -13,3 +13,11 @@ add_custom_command(
   POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/2.txt
           ${CMAKE_BINARY_DIR}/2015/2.txt)
+
+# day 3 details
+add_executable(2015_3 main.3.cpp)
+add_custom_command(
+  TARGET 2015_3
+  POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/3.txt
+          ${CMAKE_BINARY_DIR}/2015/3.txt)
