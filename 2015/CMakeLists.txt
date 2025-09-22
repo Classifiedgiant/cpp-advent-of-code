@@ -25,3 +25,11 @@ add_custom_command(
 # day 4 details
 add_executable(2015_4 main.4.cpp)
 target_link_libraries(2015_4 ssl crypto)
+
+# day 5 details
+add_executable(2015_5 main.5.cpp)
+add_custom_command(
+  TARGET 2015_5
+  POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/5.txt
+          ${CMAKE_BINARY_DIR}/2015/5.txt)
