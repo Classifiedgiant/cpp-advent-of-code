@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: Install packages
+      run: sudo apt -y install gcovr
+
     - name: Checkout
       uses: actions/checkout@v3
 
@@ -34,7 +37,7 @@ jobs:
         done
 
     - name: Generate Code Coverage
-      run: gcovr -b -f src/
+      run: gcovr --exclude build/ --gcov-executable gcov-14
 
     - uses: codecov/codecov-action@v4
       with:
