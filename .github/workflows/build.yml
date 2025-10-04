@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: Install packages
+      run: sudo apt -y install gcovr
+
     - name: Checkout
       uses: actions/checkout@v3
 
@@ -25,4 +28,21 @@ jobs:
 
     - name: Build
       run: cmake --build build/
+
+    - name: Run all test executables
+      run: |
+        find ./build/2015 -type f -executable | while read -r exe; do
+        echo "Running $exe"
+        "$exe" || "Failed: $exe"
+        done
+
+    - name: Generate Code Coverage
+      run: gcovr --exclude build/ --gcov-executable gcov-14
+
+    - uses: codecov/codecov-action@v4
+      with:
+        fail-ci-if-error: true
+        name: codecov
+        token: ${{ secrets.CODECOV_TOKEN }}
+        verbose: true
 
