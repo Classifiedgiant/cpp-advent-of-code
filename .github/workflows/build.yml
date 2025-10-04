@@ -15,6 +15,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: Update cmake
+      run: sudo apt install cmake
+
     - name: Generate Project
       run: cmake -B build/ -S . --preset gcc14
 
