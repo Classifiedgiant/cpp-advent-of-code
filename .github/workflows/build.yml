@@ -20,12 +20,9 @@ jobs:
       with:
         cmake-version: '4.1.x'
 
-
     - name: Generate Project
       run: cmake -B build/ -S . --preset gcc14
 
     - name: Build
       run: cmake --build build/
-
-
 
