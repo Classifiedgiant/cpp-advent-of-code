@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: Install packages
+      run: sudo apt -y install gcovr
+
     - name: Checkout
       uses: actions/checkout@v3
 
