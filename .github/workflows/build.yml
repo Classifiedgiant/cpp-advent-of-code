@@ -33,3 +33,13 @@ jobs:
         "$exe" || "Failed: $exe"
         done
 
+    - name: Generate Code Coverage
+      run: gcovr -b -f src/
+
+    - uses: codecov/codecov-action@v4
+      with:
+        fail-ci-if-error: true
+        name: codecov
+        token: ${{ secrets.CODECOV_TOKEN }}
+        verbose: true
+
