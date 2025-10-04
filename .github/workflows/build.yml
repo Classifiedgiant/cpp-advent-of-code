@@ -26,3 +26,10 @@ jobs:
     - name: Build
       run: cmake --build build/
 
+    - name: Run all test executables
+      run: |
+        find ./build/2015 -type f -executable | while read -r exe; do
+        echo "Running $exe"
+        "$exe" || "Failed: $exe"
+        done
+
