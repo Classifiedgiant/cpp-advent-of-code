@@ -63,3 +63,13 @@ add_custom_command(
         POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/7.txt
         ${CMAKE_BINARY_DIR}/2015/7.txt)
+
+# day 8 details
+add_executable(2015_8 main.8.cpp)
+target_compile_options(2015_8 PUBLIC -coverage)
+target_link_options(2015_8 PUBLIC -coverage)
+add_custom_command(
+        TARGET 2015_8
+        POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/8.txt
+        ${CMAKE_BINARY_DIR}/2015/8.txt)
