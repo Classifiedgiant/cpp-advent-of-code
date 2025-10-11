@@ -44,7 +44,7 @@ add_custom_command(
         COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/5.txt
         ${CMAKE_BINARY_DIR}/2015/5.txt)
 
-# day 5 details
+# day 6 details
 add_executable(2015_6 main.6.cpp)
 target_compile_options(2015_6 PUBLIC -coverage)
 target_link_options(2015_6 PUBLIC -coverage)
@@ -54,3 +54,12 @@ add_custom_command(
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/6.txt
           ${CMAKE_BINARY_DIR}/2015/6.txt)
 
+# day 7 details
+add_executable(2015_7 main.7.cpp)
+target_compile_options(2015_7 PUBLIC -coverage)
+target_link_options(2015_7 PUBLIC -coverage)
+add_custom_command(
+        TARGET 2015_7
+        POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/7.txt
+        ${CMAKE_BINARY_DIR}/2015/7.txt)
