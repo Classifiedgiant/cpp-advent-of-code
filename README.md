@@ -23,5 +23,5 @@ Run:
 
 ```bash
 # example run
-build/2015/2015_1 "()()"
+build/2015/2015_1
 ```
