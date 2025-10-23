@@ -1,3 +1,5 @@
+set(SHARED_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/shared")
+
 # day 1 details
 add_executable(2015_1 main.1.cpp)
 target_compile_options(2015_1 PUBLIC -coverage)
@@ -73,3 +75,14 @@ add_custom_command(
         POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/8.txt
         ${CMAKE_BINARY_DIR}/2015/8.txt)
+
+# day 9 details
+add_executable(2015_9 main.9.cpp)
+target_compile_options(2015_9 PUBLIC -coverage)
+target_link_options(2015_9 PUBLIC -coverage)
+target_include_directories(2015_9 PRIVATE ${SHARED_INCLUDE_DIR})
+add_custom_command(
+        TARGET 2015_9
+        POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/9.txt
+        ${CMAKE_BINARY_DIR}/2015/9.txt)
