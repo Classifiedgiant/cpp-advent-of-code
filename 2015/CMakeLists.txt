@@ -86,3 +86,8 @@ add_custom_command(
         POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/9.txt
         ${CMAKE_BINARY_DIR}/2015/9.txt)
+
+# day 10 details
+add_executable(2015_10 main.10.cpp)
+target_compile_options(2015_10 PUBLIC -coverage)
+target_link_options(2015_10 PUBLIC -coverage)
