@@ -91,3 +91,8 @@ add_custom_command(
 add_executable(2015_10 main.10.cpp)
 target_compile_options(2015_10 PUBLIC -coverage)
 target_link_options(2015_10 PUBLIC -coverage)
+
+# day 11 details
+add_executable(2015_11 main.11.cpp)
+target_compile_options(2015_11 PUBLIC -coverage)
+target_link_options(2015_11 PUBLIC -coverage)
