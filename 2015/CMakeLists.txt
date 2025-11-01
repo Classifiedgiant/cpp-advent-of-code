@@ -1,5 +1,7 @@
 set(SHARED_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/shared")
 
+include(FetchContent)
+
 # day 1 details
 add_executable(2015_1 main.1.cpp)
 target_compile_options(2015_1 PUBLIC -coverage)
@@ -96,3 +98,21 @@ target_link_options(2015_10 PUBLIC -coverage)
 add_executable(2015_11 main.11.cpp)
 target_compile_options(2015_11 PUBLIC -coverage)
 target_link_options(2015_11 PUBLIC -coverage)
+
+# day 12 details
+add_executable(2015_12 main.12.cpp)
+target_compile_options(2015_12 PUBLIC -coverage)
+target_link_options(2015_12 PUBLIC -coverage)
+FetchContent_Declare(
+        json
+        GIT_REPOSITORY https://github.com/nlohmann/json.git
+        GIT_TAG v3.12.0
+)
+FetchContent_MakeAvailable(json)
+target_link_libraries(2015_12 PRIVATE nlohmann_json::nlohmann_json)
+target_include_directories(2015_12 PRIVATE ${SHARED_INCLUDE_DIR})
+add_custom_command(
+        TARGET 2015_12
+        POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/12.txt
+        ${CMAKE_BINARY_DIR}/2015/12.txt)
