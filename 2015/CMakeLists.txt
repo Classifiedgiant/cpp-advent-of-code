@@ -149,3 +149,14 @@ add_custom_command(
         POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/15.txt
         ${CMAKE_BINARY_DIR}/2015/15.txt)
+
+# day 16 details
+add_executable(2016_16 main.16.cpp)
+target_compile_options(2016_16 PUBLIC -coverage)
+target_link_options(2016_16 PUBLIC -coverage)
+target_include_directories(2016_16 PRIVATE ${SHARED_INCLUDE_DIR})
+add_custom_command(
+        TARGET 2016_16
+        POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/16.txt
+        ${CMAKE_BINARY_DIR}/2015/16.txt)
