@@ -1,5 +1,4 @@
 #include <cassert>
-#include <cstdint>
 #include <fstream>
 #include <iosfwd>
 #include <optional>
