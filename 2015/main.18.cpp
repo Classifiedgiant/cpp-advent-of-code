@@ -67,7 +67,7 @@ void turnCornerLightsOn(Grid& grid) {
 }
 
 int main(int argc, const char* argv[]) {
-    std::ifstream file{"18.txt"};
+    std::ifstream file{"./2015/18.txt"};
 
     Grid grid;
     fillGridFromFile(grid, file);
@@ -84,7 +84,7 @@ int main(int argc, const char* argv[]) {
     grid = original;
     turnCornerLightsOn(grid);
 
-    for (size_t i{}; i < steps; i++) {
+    for ([[maybe_unused]] auto _ : std::views::iota(0, steps)) {
         grid = calculateStep(grid);
         turnCornerLightsOn(grid);
     }
