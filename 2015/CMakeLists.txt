@@ -151,18 +151,29 @@ add_custom_command(
         ${CMAKE_BINARY_DIR}/2015/15.txt)
 
 # day 16 details
-add_executable(2016_16 main.16.cpp)
-target_compile_options(2016_16 PUBLIC -coverage)
-target_link_options(2016_16 PUBLIC -coverage)
-target_include_directories(2016_16 PRIVATE ${SHARED_INCLUDE_DIR})
+add_executable(2015_16 main.16.cpp)
+target_compile_options(2015_16 PUBLIC -coverage)
+target_link_options(2015_16 PUBLIC -coverage)
+target_include_directories(2015_16 PRIVATE ${SHARED_INCLUDE_DIR})
 add_custom_command(
-        TARGET 2016_16
+        TARGET 2015_16
         POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/16.txt
         ${CMAKE_BINARY_DIR}/2015/16.txt)
 
 # day 17 details
-add_executable(2017_17 main.17.cpp)
-target_compile_options(2017_17 PUBLIC -coverage)
-target_link_options(2017_17 PUBLIC -coverage)
-target_include_directories(2017_17 PRIVATE ${SHARED_INCLUDE_DIR})
+add_executable(2015_17 main.17.cpp)
+target_compile_options(2015_17 PUBLIC -coverage)
+target_link_options(2015_17 PUBLIC -coverage)
+target_include_directories(2015_17 PRIVATE ${SHARED_INCLUDE_DIR})
+
+# day 18 details
+add_executable(2015_18 main.18.cpp)
+target_compile_options(2015_18 PUBLIC -coverage)
+target_link_options(2015_18 PUBLIC -coverage)
+target_include_directories(2015_18 PRIVATE ${SHARED_INCLUDE_DIR})
+add_custom_command(
+        TARGET 2015_18
+        POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/2015/18.txt
+        ${CMAKE_BINARY_DIR}/2015/18.txt)
