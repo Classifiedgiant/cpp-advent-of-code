@@ -10,7 +10,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(json)
 
-foreach(DAY RANGE 1 22)
+foreach(DAY RANGE 1 23)
   set(TARGET_NAME "2015_${DAY}")
 
   add_executable(${TARGET_NAME} main.${DAY}.cpp)
