@@ -10,12 +10,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(json)
 
-foreach(DAY RANGE 1 24)
+foreach(DAY RANGE 1 25)
   set(TARGET_NAME "2015_${DAY}")
 
   add_executable(${TARGET_NAME} main.${DAY}.cpp)
   target_compile_options(${TARGET_NAME} PUBLIC -coverage)
   target_link_options(${TARGET_NAME} PUBLIC -coverage)
+
   target_include_directories(${TARGET_NAME} PRIVATE ${SHARED_INCLUDE_DIR})
 
   # Copy input file if it exists

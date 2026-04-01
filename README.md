@@ -25,3 +25,7 @@ Run:
 # example run
 build/2015/2015_1
 ```
+
+## 2015 Completion
+
+![2015 Completion](images/2015_completion.png)
