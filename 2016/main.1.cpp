@@ -131,7 +131,7 @@ Position findFirstDuplicate(const std::vector<std::string>& moves)
 
 int main()
 {
-    const auto moves = getMoves(".2016/1.txt");
+    const auto moves = getMoves("./2016/1.txt");
     const auto position = findFinalDestination(moves);
     const auto part1Ans = std::abs(position.first) + std::abs(position.second);
 
