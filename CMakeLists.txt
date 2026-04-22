@@ -8,3 +8,4 @@ set(CXX_STANDARD 23)
 add_compile_options(-Wall -Wextra -Wconversion -Wshadow)
 
 add_subdirectory(2015)
+add_subdirectory(2016)
